@@ -46,9 +46,6 @@ Once your repo has been pushed, visit the heroku link generated from the last co
 
 ## Contributing
 
-Contributing
-------------
-
  1. **Fork** the repo on GitHub
  2. **Clone** the project to your own machine
  3. **Commit** changes to your own branch
