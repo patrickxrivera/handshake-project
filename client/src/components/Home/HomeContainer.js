@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { string, func, arrayOf, shape } from 'prop-types';
 import { connect } from 'react-redux';
 
 import { selectRestaurants } from '../../reducers/restaurants';
 import { fetchRestaurants, createRestaurant } from '../../actions/restaurants';
 import { HomeBranch } from './';
-
-const isValid = (value) => value;
+import { isValid } from './helpers';
 
 class HomeContainer extends Component {
   state = {
@@ -44,5 +44,16 @@ class HomeContainer extends Component {
 const mapStateToProps = (state) => ({
   restaurants: selectRestaurants(state)
 });
+
+HomeContainer.propTypes = {
+  restaurants: arrayOf(
+    shape({
+      _id: string.isRequired,
+      name: string.isReqiured
+    })
+  ),
+  fetchRestaurants: func.isRequired,
+  createRestaurant: func.isRequired
+};
 
 export default connect(mapStateToProps, { fetchRestaurants, createRestaurant })(HomeContainer);
