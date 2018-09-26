@@ -1,11 +1,11 @@
-import { FETCH_RESTAURANTS, CREATE_RESTAURANT } from './types';
+import { GET_ALARMS, CREATE_ALARM } from './types';
 
-export const fetchRestaurantsSuccess = (restaurants) => ({
-  type: FETCH_RESTAURANTS,
-  restaurants
+export const getAlarmsSuccess = (alarms) => ({
+  type: GET_ALARMS,
+  alarms
 });
 
-export const createRestaurantSuccess = (restaurant) => ({
-  type: CREATE_RESTAURANT,
-  restaurant
+export const createAlarmSuccess = (alarm) => ({
+  type: CREATE_ALARM,
+  alarm
 });
