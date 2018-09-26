@@ -63,7 +63,7 @@ Then push your repo to heroku:
 git push heroku master
 ```
 
-Once your repo has been pushed, visit the heroku link generated from the last command.
+Once your repo has been pushed, visit the heroku link generated from the last command. Enjoy!
 
 ##
 
