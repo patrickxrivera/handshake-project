@@ -1,9 +1,7 @@
 ![Logo of the project](./client/public/handshake.png)
 
-# MERN Boilerplate &middot; [![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)](https://www.npmjs.com/package/npm) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
-> Build MERN apps with ease
-
-Boilerplate for developing apps with the MERN stack (Mongo, Express, React, and Node).
+# Handshake Project &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
+> Helping all students find meaningful careers
 
 By: [Patrick Rivera](mailto:patrick.x.rivera@gmail.com)
 
@@ -14,7 +12,7 @@ By: [Patrick Rivera](mailto:patrick.x.rivera@gmail.com)
 
 Clone down the repo and move into the directory.
 ```shell
-git clone https://github.com/pxr13/mern-boilerplate && cd mern-boilerplate
+git clone https://github.com/pxr13/handshake-project && cd handshake-project
 ```
 
 Install and run the server:
@@ -50,6 +48,8 @@ git push heroku master
 
 Once your repo has been pushed, visit the heroku link generated from the last command.
 
+##
+
 ## Contributing
 
  1. **Fork** the repo on GitHub
@@ -59,4 +59,3 @@ Once your repo has been pushed, visit the heroku link generated from the last co
  5. Submit a **Pull request** so we can review your changes
 
 NOTE: Be sure to merge the latest from "upstream" before making a pull request!
-# handshake-project
