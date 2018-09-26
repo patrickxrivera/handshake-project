@@ -1,27 +1,5 @@
 import React from 'react';
-
-import styled from 'styled-components';
-
-export const ListWrapper = styled.div`
-  width: 500px;
-  height: 50px;
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-  padding: 10px;
-`;
-
-export const List = styled.li`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-`;
-
-export const UpvoteWrapper = styled.div`
-  > * {
-    margin: 0 1rem;
-  }
-`;
+import { UpvoteWrapper, ListWrapper, List } from './styles';
 
 const renderAlarm = ({ addUpvote, addDownvote, votes }) => ({ _id, text }) => (
   <ListWrapper key={_id}>
@@ -40,7 +18,6 @@ const renderAlarm = ({ addUpvote, addDownvote, votes }) => ({ _id, text }) => (
 
 const Home = ({ alarms, ...rest }) => (
   <div>
-    <h3>All Alarms</h3>
     <ul>{alarms.map(renderAlarm(rest))}</ul>
   </div>
 );
