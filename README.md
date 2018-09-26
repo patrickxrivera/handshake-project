@@ -42,8 +42,8 @@ You should now be taken to http://localhost:3000 and see the home screen. Enjoy!
 
 ## API Reference
 ### `users`
-- `GET /api/alarm` - get all alarms
-- `POST /api/alarm` - create alarm
+- `GET /api/alarms` - get all alarms
+- `POST /api/alarms` - create alarm
 
 ##
 
