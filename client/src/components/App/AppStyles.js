@@ -1,4 +1,4 @@
-import styled, { injectGlobal } from 'styled-components';
+import styled from 'styled-components';
 import colors from '../../utils/colors';
 
 export const Wrapper = styled.div`

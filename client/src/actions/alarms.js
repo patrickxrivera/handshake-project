@@ -1,5 +1,8 @@
-import { getAlarmsSuccess, createAlarmSuccess } from './utils/dispatch';
+import { createAction } from 'redux-actions';
+
 import api from '../api';
+import { getAlarmsSuccess, createAlarmSuccess, addToVoteCache } from './utils/dispatch';
+import { ADD_UPVOTE, ADD_DOWNVOTE } from './utils/types';
 
 export const getAlarms = () => async (dispatch) => {
   const response = await api.getAlarmsSent();
@@ -19,3 +22,7 @@ export const createAlarm = (name) => async (dispatch) => {
   // TODO:
   // handle error
 };
+
+export const addUpvote = createAction(ADD_UPVOTE);
+
+export const addDownvote = createAction(ADD_DOWNVOTE);

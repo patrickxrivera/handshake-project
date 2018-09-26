@@ -21,14 +21,14 @@ const create = (AlarmModel) => async (req, res, next) => {
   if (isError(pushNotificationStatus)) {
     console.log(pushNotificationStatus);
     // TODO:
-    // send error to logger
+    // send error to logging service
   }
 };
 
 const get = (AlarmModel) => async (_, res, next) => {
   const alarms = await AlarmModel.find({});
 
-  res.send({ alarms });
+  res.send({ alarms: alarms.reverse() });
 };
 
 module.exports = {

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { string, func, arrayOf, shape, number } from 'prop-types';
 import { connect } from 'react-redux';
 
-import { selectAlarms } from '../../reducers/alarms';
-import { getAlarms, createAlarm } from '../../actions/alarms';
+import { selectAlarms, selectVotes } from '../../reducers/alarms';
+import { getAlarms, createAlarm, addUpvote, addDownvote } from '../../actions/alarms';
 import { HomeBranch } from './';
 import { isValid } from './helpers';
 
@@ -30,27 +30,32 @@ class HomeContainer extends Component {
   };
 
   render() {
+    const { alarms, votes, addUpvote, addDownvote } = this.props;
+
     return (
       <HomeBranch
         {...this.state}
         handleSubmit={this.handleSubmit}
         handleInputChange={this.handleInputChange}
-        alarms={this.props.alarms}
+        alarms={alarms}
+        addUpvote={addUpvote}
+        addDownvote={addDownvote}
+        votes={votes}
       />
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  alarms: selectAlarms(state)
+  alarms: selectAlarms(state),
+  votes: selectVotes(state)
 });
 
 HomeContainer.propTypes = {
   alarms: arrayOf(
     shape({
       _id: string.isRequired,
-      text: string.isReqiured,
-      upvotes: number.isRequired
+      text: string.isReqiured
       // TODO:
       // ADD created_at
     })
@@ -59,4 +64,6 @@ HomeContainer.propTypes = {
   createAlarm: func.isRequired
 };
 
-export default connect(mapStateToProps, { getAlarms, createAlarm })(HomeContainer);
+export default connect(mapStateToProps, { getAlarms, createAlarm, addUpvote, addDownvote })(
+  HomeContainer
+);

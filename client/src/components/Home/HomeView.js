@@ -23,25 +23,25 @@ export const UpvoteWrapper = styled.div`
   }
 `;
 
-const renderAlarm = ({ _id, text, upvotes }) => (
-  <ListWrapper>
-    <List key={_id}>
+const renderAlarm = ({ addUpvote, addDownvote, votes }) => ({ _id, text }) => (
+  <ListWrapper key={_id}>
+    <List>
       <div>
         <span>{text.toUpperCase()}</span>
       </div>
       <UpvoteWrapper>
-        <span>{upvotes}</span>
-        <button>Upvote</button>
-        <button>Downvote</button>
+        <span>{votes[_id]}</span>
+        <button onClick={() => addUpvote(_id)}>Upvote</button>
+        <button onClick={() => addDownvote(_id)}>Downvote</button>
       </UpvoteWrapper>
     </List>
   </ListWrapper>
 );
 
-const Home = ({ alarms }) => (
+const Home = ({ alarms, ...rest }) => (
   <div>
     <h3>All Alarms</h3>
-    <ul>{alarms.reverse().map(renderAlarm)}</ul>
+    <ul>{alarms.map(renderAlarm(rest))}</ul>
   </div>
 );
 

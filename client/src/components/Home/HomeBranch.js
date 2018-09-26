@@ -1,18 +1,18 @@
 import React from 'react';
 import { isEmpty, isNil } from '../../utils/helpers';
-import { HomeView, NoRestaurantsMessage } from './';
+import { HomeView, NoAlarmsMessage } from './';
 
-const renderAlarms = (alarms) =>
-  isEmpty(alarms) ? <NoRestaurantsMessage /> : <HomeView alarms={alarms} />;
+const renderAlarms = (alarms, rest) =>
+  isEmpty(alarms) ? <NoAlarmsMessage /> : <HomeView alarms={alarms} {...rest} />;
 
-const HomeBranch = ({ alarms, value, handleSubmit, handleInputChange }) => {
+const HomeBranch = ({ alarms, value, handleSubmit, handleInputChange, ...rest }) => {
   if (isNil(alarms)) {
     return <div>Loading</div>;
   }
 
   return (
     <div>
-      {renderAlarms(alarms)}
+      {renderAlarms(alarms, rest)}
       <span>Add one: </span>
       <input onChange={handleInputChange} value={value} />
       <div>

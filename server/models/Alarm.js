@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const AlarmSchema = new Schema({
-  text: String,
-  upvotes: { type: Number, default: 0 },
+  text: { type: String },
   created_at: { type: Date, default: Date.now() }
 });
 
