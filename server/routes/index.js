@@ -1,7 +1,8 @@
-const restaurantController = require('../controllers/restaurant');
-const RestaurantModel = require('../models/Restaurant');
+const alarmController = require('../controllers/alarm');
+const AlarmModel = require('../models/Alarm');
 
 module.exports = (app) => {
-  app.post('/api/restaurant', restaurantController.create(RestaurantModel));
-  app.get('/api/restaurant', restaurantController.get(RestaurantModel));
+  // Alarm
+  app.post('/api/alarm', alarmController.create(AlarmModel));
+  app.get('/api/alarm', alarmController.get(AlarmModel));
 };

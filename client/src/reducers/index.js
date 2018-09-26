@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import restaurantsReducer from './restaurants';
+import alarmsReducer from './alarms';
 
 const rootReducer = combineReducers({
-  restaurants: restaurantsReducer
+  alarms: alarmsReducer
 });
 
 export default rootReducer;

@@ -1,11 +1,24 @@
 import React from 'react';
+import { UpvoteWrapper, ListWrapper, List } from './styles';
 
-const renderName = ({ name, _id }) => <li key={_id}>{name}</li>;
+const renderAlarm = ({ addUpvote, addDownvote, votes }) => ({ _id, text }) => (
+  <ListWrapper key={_id}>
+    <List>
+      <div>
+        <span>{text.toUpperCase()}</span>
+      </div>
+      <UpvoteWrapper>
+        <span>{votes[_id]}</span>
+        <button onClick={() => addUpvote(_id)}>Upvote</button>
+        <button onClick={() => addDownvote(_id)}>Downvote</button>
+      </UpvoteWrapper>
+    </List>
+  </ListWrapper>
+);
 
-const Home = ({ restaurants }) => (
+const Home = ({ alarms, ...rest }) => (
   <div>
-    <h3>Awesome Restaurants</h3>
-    <ul>{restaurants.map(renderName)}</ul>
+    <ul>{alarms.map(renderAlarm(rest))}</ul>
   </div>
 );
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { string, func, arrayOf, shape } from 'prop-types';
+import { string, func, arrayOf, shape, number } from 'prop-types';
 import { connect } from 'react-redux';
 
-import { selectRestaurants } from '../../reducers/restaurants';
-import { fetchRestaurants, createRestaurant } from '../../actions/restaurants';
+import { selectAlarms, selectVotes } from '../../reducers/alarms';
+import { getAlarms, createAlarm, addUpvote, addDownvote } from '../../actions/alarms';
 import { HomeBranch } from './';
 import { isValid } from './helpers';
 
@@ -12,15 +12,15 @@ class HomeContainer extends Component {
     value: ''
   };
 
-  componentDidMount = () => {
-    this.props.fetchRestaurants();
+  componentDidMount = async () => {
+    this.props.getAlarms();
   };
 
   handleSubmit = () => {
     const { value } = this.state;
 
     if (isValid(value)) {
-      this.props.createRestaurant(value);
+      this.props.createAlarm(value);
       this.setState({ value: '' });
     }
   };
@@ -30,30 +30,40 @@ class HomeContainer extends Component {
   };
 
   render() {
+    const { alarms, votes, addUpvote, addDownvote } = this.props;
+
     return (
       <HomeBranch
         {...this.state}
         handleSubmit={this.handleSubmit}
         handleInputChange={this.handleInputChange}
-        restaurants={this.props.restaurants}
+        alarms={alarms}
+        addUpvote={addUpvote}
+        addDownvote={addDownvote}
+        votes={votes}
       />
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  restaurants: selectRestaurants(state)
+  alarms: selectAlarms(state),
+  votes: selectVotes(state)
 });
 
 HomeContainer.propTypes = {
-  restaurants: arrayOf(
+  alarms: arrayOf(
     shape({
       _id: string.isRequired,
-      name: string.isReqiured
+      text: string.isReqiured
+      // TODO:
+      // ADD created_at
     })
   ),
-  fetchRestaurants: func.isRequired,
-  createRestaurant: func.isRequired
+  getAlarms: func.isRequired,
+  createAlarm: func.isRequired
 };
 
-export default connect(mapStateToProps, { fetchRestaurants, createRestaurant })(HomeContainer);
+export default connect(mapStateToProps, { getAlarms, createAlarm, addUpvote, addDownvote })(
+  HomeContainer
+);

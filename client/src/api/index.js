@@ -1,5 +1,5 @@
-import restaurants from './restaurants';
+import alarms from './alarms';
 
 export default {
-  ...restaurants
+  ...alarms
 };
