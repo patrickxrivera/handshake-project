@@ -24,7 +24,26 @@ In a new tab, install and run the client:
 ```shell
 cd client/ && npm i && npm start
 ```
-You should now be taken to http://localhost:3000 and see the home screen!
+You should now be taken to http://localhost:3000 and see the home screen. Enjoy!
+
+##
+
+## Database Schema
+### `users`
+| column name | data type | details               |
+| ------------|:---------:| ---------------------:|
+| id          | integer   | not null, primary key |
+| username    | string    | not null, indexed     |
+| created_at  | datetime  | not null              |
+
+##
+
+## API Reference
+### `users`
+- `GET /api/users` - return user information
+- `POST /api/users` - create user
+
+##
 
 ## Deploying to Heroku
 
