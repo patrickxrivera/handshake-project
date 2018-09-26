@@ -31,19 +31,19 @@ You should now be taken to http://localhost:3000 and see the home screen. Enjoy!
 ##
 
 ## Database Schema
-### `users`
-| column name | data type | details               |
-| ------------|:---------:| ---------------------:|
-| id          | integer   | not null, primary key |
-| username    | string    | not null, indexed     |
-| created_at  | datetime  | not null              |
+### `alarms`
+| column name | data type |
+| ------------|:---------:|
+| id          | ObjectId  |
+| text        | String    | 
+| created_at  | Date      | 
 
 ##
 
 ## API Reference
 ### `users`
-- `GET /api/users` - return user information
-- `POST /api/users` - create user
+- `GET /api/alarm` - get all alarms
+- `POST /api/alarm` - create alarm
 
 ##
 
