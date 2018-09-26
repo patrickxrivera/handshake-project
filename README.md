@@ -15,6 +15,8 @@ Clone down the repo and move into the directory.
 git clone https://github.com/pxr13/handshake-project && cd handshake-project
 ```
 
+Connect to a development Mongo instance if you need a DB. [Instructions here](https://studio3t.com/whats-new/how-to-connect-to-mlab/):
+
 Install and run the server:
 ```shell
 npm i && npm run dev
@@ -54,11 +56,7 @@ Once installed, create a new heroku app:
 heroku create
 ```
 
-Add any env variables to heroku:
-```shell
-heroku config:set DATABASE_URI=database_uri_here
-heroku config:set SESSION_SECRET=session_secret
-```
+Connect to a production Mongo instance if you need a DB. [Instructions here](https://devcenter.heroku.com/articles/mongolab#getting-your-connection-uri):
 
 Then push your repo to heroku:
 ```shell
