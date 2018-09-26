@@ -47,6 +47,16 @@ You should now be taken to http://localhost:3000 and see the home screen. Enjoy!
 
 ##
 
+## To-do
+
+- Persist votes on backend
+- Add backend endpoints for upvoting and downvoting
+- Add logging service for errors
+- Add a task queue to asynchronously process notifications
+- Separate votes and alarms in redux state
+- Submit alarm when user presses enter
+- Pagination for alarms view
+
 ## Deploying to Heroku
 
 [Install](https://devcenter.heroku.com/articles/heroku-cli) the heroku cli if you haven't already.
