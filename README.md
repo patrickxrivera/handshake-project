@@ -59,3 +59,4 @@ Once your repo has been pushed, visit the heroku link generated from the last co
  5. Submit a **Pull request** so we can review your changes
 
 NOTE: Be sure to merge the latest from "upstream" before making a pull request!
+# handshake-project
