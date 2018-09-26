@@ -41,7 +41,6 @@ Add any env variables to heroku:
 ```shell
 heroku config:set DATABASE_URI=database_uri_here
 heroku config:set SESSION_SECRET=session_secret
-... and so on for each variable, 
 ```
 
 Then push your repo to heroku:
