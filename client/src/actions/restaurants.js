@@ -1,4 +1,4 @@
-import { fetchRestaurantsSuccess, createRestaurantsSuccess } from './utils/dispatch';
+import { fetchRestaurantsSuccess } from './utils/dispatch';
 import api from '../api';
 
 export const fetchRestaurants = () => async (dispatch) => {
