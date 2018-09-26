@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const AlarmSchema = new Schema({
   text: String,
-  upvotes: Number,
+  upvotes: { type: Number, default: 0 },
   created_at: { type: Date, default: Date.now() }
 });
 
