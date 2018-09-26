@@ -9,21 +9,6 @@ By: [Patrick Rivera](mailto:patrick.x.rivera@gmail.com)
 
 [patrickrivera.io](https://patrickrivera.io)
 
-## First time setup
-
-The first step to running MERN-boilerplate locally is downloading the code by cloning the repository:
-
-```shell
-git clone https://github.com/pxr13/mern-boilerplate
-```
-
-## Develop the web UI
-
-To develop the frontend and web UI run
-
-```
-yarn run dev:web
-```
 
 ## Getting Started
 
@@ -43,19 +28,28 @@ cd client/ && npm i && npm start
 ```
 You should now be taken to http://localhost:3000 and see the home screen!
 
-## Built With
-* React
-* Node
-* MongoDB
-* Express
+## Deploying to Heroku
 
+[Install](https://devcenter.heroku.com/articles/heroku-cli) the heroku cli if you haven't already.
 
-## Api Reference
+Once installed, create a new heroku app:
+```shell
+heroku create
+```
 
-If the api is external, link to api documentation. If not describe your api including authentication methods as well as explaining all the endpoints with their required parameters.
+Then push your repo to heroku:
+```shell
+git push heroku master
+```
 
+Once your repo has been pushed, visit the heroku link generated from the last command.
 
-## Database
+## Contributing
 
-Explaining what database (and version) has been used. Provide download links.
-Documents your database design and schemas, relations etc... 
+ 1. **Fork** the repo on GitHub
+ 2. **Clone** the project to your own machine
+ 3. **Commit** changes to your own branch
+ 4. **Push** your work back up to your fork
+ 5. Submit a **Pull request** so we can review your changes
+
+NOTE: Be sure to merge the latest from "upstream" before making a pull request!
