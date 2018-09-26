@@ -1,7 +1,7 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const mongoose = require('mongoose');
-const initTestSetup = require('../testSetup');
+// const initTestSetup = require('../testSetup');
 
 const app = require('../../app');
 const code = require('../../utils/statusCodes');
