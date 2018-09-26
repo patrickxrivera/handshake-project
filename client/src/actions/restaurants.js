@@ -1,4 +1,4 @@
-import { fetchRestaurantsSuccess } from './utils/dispatch';
+import { fetchRestaurantsSuccess, createRestaurantSuccess } from './utils/dispatch';
 import api from '../api';
 
 export const fetchRestaurants = () => async (dispatch) => {
@@ -10,7 +10,9 @@ export const fetchRestaurants = () => async (dispatch) => {
 
 export const createRestaurant = (name) => async (dispatch) => {
   const response = await api.createRestaurantsSent(name);
-  const { success } = response.data;
+  const { success, restaurant } = response.data;
 
-  success ? console.log('success!') : console.log('error creating restaurant');
+  if (success) {
+    return dispatch(createRestaurantSuccess(restaurant));
+  }
 };

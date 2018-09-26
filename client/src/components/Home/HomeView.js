@@ -1,6 +1,6 @@
 import React from 'react';
 
-const renderName = ({ name }) => <li>{name}</li>;
+const renderName = ({ name, _id }) => <li key={_id}>{name}</li>;
 
 const Home = ({ restaurants }) => (
   <div>

@@ -6,9 +6,13 @@ const initialState = {
 
 export default handleActions(
   {
-    FETCH_RESTAURANTS: (state, action) => ({
+    FETCH_RESTAURANTS: (state, { restaurants }) => ({
       ...state,
-      all: action.restaurants
+      all: restaurants
+    }),
+    CREATE_RESTAURANT: (state, { restaurant }) => ({
+      ...state,
+      all: [...state.all, restaurant]
     })
   },
   initialState

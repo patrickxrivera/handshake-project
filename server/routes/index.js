@@ -1,10 +1,7 @@
-const express = require('express');
 const restaurantController = require('../controllers/restaurant');
 const RestaurantModel = require('../models/Restaurant');
 
-const apiRouter = express.Router();
-
-apiRouter.post('/restaurant', restaurantController.create(RestaurantModel));
-apiRouter.get('/restaurant', restaurantController.get(RestaurantModel));
-
-module.exports = apiRouter;
+module.exports = (app) => {
+  app.post('/api/restaurant', restaurantController.create(RestaurantModel));
+  app.get('/api/restaurant', restaurantController.get(RestaurantModel));
+};

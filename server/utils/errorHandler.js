@@ -1,5 +1,5 @@
 const code = require('./statusCodes');
 
-module.exports = (res, message) => {
+module.exports = (message, req, res, next) => {
   res.status(code.USER_ERROR).send({ error: { message } });
 };

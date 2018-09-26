@@ -4,7 +4,9 @@ const helmet = require('helmet');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const apiRouter = require('./routes');
+const mountRoutes = require('./routes');
+const code = require('./utils/statusCodes');
+const errorHandler = require('./utils/errorHandler');
 
 const app = express();
 
@@ -14,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '../client/build')));
 
-app.use('/api', apiRouter);
+mountRoutes(app);
+
+app.use(errorHandler);
 
 module.exports = app;

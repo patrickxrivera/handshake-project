@@ -4,13 +4,13 @@ const create = (RestaurantModel) => async (req, res, next) => {
   const { name } = req.body;
 
   if (!name) {
-    errorHandler(res, 'Restaurant must have a name.');
+    next('Restaurant must have a name.');
     return;
   }
 
-  const result = await RestaurantModel.create({ name });
+  const restaurant = await RestaurantModel.create({ name });
 
-  res.send({ success: true });
+  res.send({ success: true, restaurant: restaurant });
 };
 
 const get = (RestaurantModel) => async (req, res) => {

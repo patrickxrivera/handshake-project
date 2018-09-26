@@ -21,6 +21,7 @@ class HomeContainer extends Component {
 
     if (isValid(value)) {
       this.props.createRestaurant(value);
+      this.setState({ value: '' });
     }
   };
 
