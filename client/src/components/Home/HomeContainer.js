@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { string, func, arrayOf, shape } from 'prop-types';
+import { string, func, arrayOf, shape, number } from 'prop-types';
 import { connect } from 'react-redux';
 
 import { selectAlarms } from '../../reducers/alarms';
@@ -13,14 +13,14 @@ class HomeContainer extends Component {
   };
 
   componentDidMount = async () => {
-    // const res = this.props.getAlarms();
+    this.props.getAlarms();
   };
 
   handleSubmit = () => {
     const { value } = this.state;
 
     if (isValid(value)) {
-      this.props.createRestaurant(value);
+      this.props.createAlarm(value);
       this.setState({ value: '' });
     }
   };
@@ -31,13 +31,12 @@ class HomeContainer extends Component {
 
   render() {
     return (
-      // <HomeBranch
-      //   {...this.state}
-      //   handleSubmit={this.handleSubmit}
-      //   handleInputChange={this.handleInputChange}
-      //   restaurants={this.props.restaurants}
-      // />
-      <div>Hi</div>
+      <HomeBranch
+        {...this.state}
+        handleSubmit={this.handleSubmit}
+        handleInputChange={this.handleInputChange}
+        alarms={this.props.alarms}
+      />
     );
   }
 }
@@ -47,14 +46,17 @@ const mapStateToProps = (state) => ({
 });
 
 HomeContainer.propTypes = {
-  restaurants: arrayOf(
+  alarms: arrayOf(
     shape({
       _id: string.isRequired,
-      name: string.isReqiured
+      text: string.isReqiured,
+      upvotes: number.isRequired
+      // TODO:
+      // ADD created_at
     })
   ),
-  fetchRestaurants: func.isRequired,
-  createRestaurant: func.isRequired
+  getAlarms: func.isRequired,
+  createAlarm: func.isRequired
 };
 
 export default connect(mapStateToProps, { getAlarms, createAlarm })(HomeContainer);

@@ -10,9 +10,9 @@ export default handleActions(
       ...state,
       all: alarms
     }),
-    CREATE_RESTAURANT: (state, { alarm }) => ({
+    CREATE_ALARM: (state, { alarm }) => ({
       ...state,
-      all: [...state.all, alarm]
+      all: [alarm, ...state.all]
     })
   },
   initialState

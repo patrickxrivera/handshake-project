@@ -1,11 +1,47 @@
 import React from 'react';
 
-const renderName = ({ name, _id }) => <li key={_id}>{name}</li>;
+import styled from 'styled-components';
 
-const Home = ({ restaurants }) => (
+export const ListWrapper = styled.div`
+  width: 500px;
+  height: 50px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  padding: 10px;
+`;
+
+export const List = styled.li`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const UpvoteWrapper = styled.div`
+  > * {
+    margin: 0 1rem;
+  }
+`;
+
+const renderAlarm = ({ _id, text, upvotes }) => (
+  <ListWrapper>
+    <List key={_id}>
+      <div>
+        <span>{text.toUpperCase()}</span>
+      </div>
+      <UpvoteWrapper>
+        <span>{upvotes}</span>
+        <button>Upvote</button>
+        <button>Downvote</button>
+      </UpvoteWrapper>
+    </List>
+  </ListWrapper>
+);
+
+const Home = ({ alarms }) => (
   <div>
-    <h3>Awesome Restaurants</h3>
-    <ul>{restaurants.map(renderName)}</ul>
+    <h3>All Alarms</h3>
+    <ul>{alarms.reverse().map(renderAlarm)}</ul>
   </div>
 );
 

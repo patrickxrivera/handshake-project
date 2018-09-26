@@ -2,17 +2,17 @@ import React from 'react';
 import { isEmpty, isNil } from '../../utils/helpers';
 import { HomeView, NoRestaurantsMessage } from './';
 
-const renderRestaurants = (restaurants) =>
-  isEmpty(restaurants) ? <NoRestaurantsMessage /> : <HomeView restaurants={restaurants} />;
+const renderAlarms = (alarms) =>
+  isEmpty(alarms) ? <NoRestaurantsMessage /> : <HomeView alarms={alarms} />;
 
-const HomeBranch = ({ restaurants, value, handleSubmit, handleInputChange }) => {
-  if (isNil(restaurants)) {
+const HomeBranch = ({ alarms, value, handleSubmit, handleInputChange }) => {
+  if (isNil(alarms)) {
     return <div>Loading</div>;
   }
 
   return (
     <div>
-      {renderRestaurants(restaurants)}
+      {renderAlarms(alarms)}
       <span>Add one: </span>
       <input onChange={handleInputChange} value={value} />
       <div>

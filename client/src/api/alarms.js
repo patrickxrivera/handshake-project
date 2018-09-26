@@ -4,5 +4,5 @@ const ENDPOINT = '/api/alarm';
 
 export default {
   getAlarmsSent: () => axios.get(ENDPOINT),
-  createAlarmSent: (name) => axios.post(ENDPOINT, { name })
+  createAlarmSent: (text) => axios.post(ENDPOINT, { text })
 };

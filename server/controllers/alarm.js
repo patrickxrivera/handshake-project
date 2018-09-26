@@ -1,4 +1,8 @@
+const axios = require('axios');
+
 const errorHandler = require('../utils/errorHandler');
+const { NOTIFICATION_API } = require('../utils/constants');
+const { isError } = require('../utils/helpers');
 
 const create = (AlarmModel) => async (req, res, next) => {
   const { text } = req.body;
@@ -12,14 +16,19 @@ const create = (AlarmModel) => async (req, res, next) => {
 
   res.send({ success: true, alarm: newAlarm });
 
-  // TODO:
-  // send post request to push notification API
+  const pushNotificationStatus = await axios.post(NOTIFICATION_API, { alarm_id: newAlarm._id });
+
+  if (isError(pushNotificationStatus)) {
+    console.log(pushNotificationStatus);
+    // TODO:
+    // send error to logger
+  }
 };
 
 const get = (AlarmModel) => async (_, res, next) => {
-  const alarms = AlarmModel.find({});
+  const alarms = await AlarmModel.find({});
 
-  res.send(alarms);
+  res.send({ alarms });
 };
 
 module.exports = {
