@@ -15,7 +15,10 @@ Clone down the repo and move into the directory.
 git clone https://github.com/pxr13/handshake-project && cd handshake-project
 ```
 
-Connect to a development Mongo instance if you need a DB. [Instructions here](https://studio3t.com/whats-new/how-to-connect-to-mlab/):
+Set the development URI for the MongoDB instance. If on Windows, create a .env file in the root folder and paste everything after "export" below.
+```shell
+export DEV_MONGO_URI=mongodb://test:iamat3st@ds135540.mlab.com:35540/handshake-project-test
+```
 
 Install and run the server:
 ```shell
@@ -41,9 +44,9 @@ You should now be taken to http://localhost:3000 and see the home screen. Enjoy!
 ##
 
 ## API Reference
-### `users`
+### `alarms`
 - `GET /api/alarms` - get all alarms
-- `POST /api/alarms` - create alarm
+- `POST /api/alarms` - create alarm and send push notification
 
 ##
 
